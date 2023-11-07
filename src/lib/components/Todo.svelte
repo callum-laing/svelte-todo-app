@@ -12,6 +12,13 @@
 		todos = todos;
 	}
 
+	function editTodo(index) {
+		const newText = prompt('Edit teh todo: ', todos[index].text);
+		if (newText !== null) {
+			todos[index].text = newText;
+			todos = [...todos];
+		}
+	}
 	function toggleCompleted(index) {
 		todos[index].completed = !todos[index].completed;
 		todos = [...todos];
@@ -38,10 +45,9 @@
 	<ul>
 		{#each todos as todo, index}
 			<div class="li-box">
-				<!-- <input class="ui-checkbox" bind:checked={todo.completed} type="checkbox" /> -->
 				<input class="ui-checkbox" bind:checked={todo.completed} type="checkbox" />
 				<span class="li-text" class:checked={todo.completed}>{todo.text}</span>
-				<!-- <button class="delete-button" on:click={() => removeTodo(index)}>X</button> -->
+				<span class="edit-btn" on:click={() => editTodo(index)}>✏️</span>
 				<span class="delete-btn" on:click={() => removeTodo(index)}>❌</span>
 			</div>
 		{/each}
@@ -119,6 +125,18 @@
 		border-color: green;
 		color: green;
 	}
+
+	.edit-btn {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.todo-add-btn,
+	.edit-btn,
+	.delete-btn {
+		cursor: pointer;
+	}
+
 	.checked {
 		text-decoration: line-through;
 	}
