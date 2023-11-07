@@ -2,14 +2,31 @@
 	let todos = [];
 	let newTodo = '';
 
+	function loadTodos() {
+		const storedTodos = localStorage.getItem('todos');
+		if (storedTodos) {
+			todos = JSON.parse(storedTodos);
+		}
+	}
+
+	if (typeof localStorage !== 'undefined') {
+		loadTodos();
+	}
+
+	function saveTodos() {
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}
+
 	function addTodo() {
 		todos = [...todos, { text: newTodo, completed: false }];
 		newTodo = '';
+		saveTodos();
 	}
 
 	function removeTodo(index) {
 		todos.splice(index, 1);
 		todos = todos;
+		saveTodos();
 	}
 
 	function editTodo(index) {
@@ -22,6 +39,7 @@
 	function toggleCompleted(index) {
 		todos[index].completed = !todos[index].completed;
 		todos = [...todos];
+		saveTodos();
 	}
 
 	function handleKeyPress(event) {
