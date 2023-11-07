@@ -64,6 +64,19 @@
 		border-bottom-right-radius: 10px;
 	}
 
+	@media screen and (max-width: 768px) {
+		.todoCard {
+			width: 100%;
+			height: auto;
+			border-radius: 0;
+			box-shadow: none;
+		}
+		.li-text {
+			max-width: 250px;
+			word-wrap: break-word;
+		}
+	}
+
 	.input-section {
 		display: flex;
 		align-items: center;
