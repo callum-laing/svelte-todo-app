@@ -3,4 +3,14 @@
 	import '$lib/styling/global.css';
 </script>
 
-<Todo />
+<main>
+	<Todo />
+</main>
+
+<style>
+	main {
+		text-align: center;
+		display: flex;
+		justify-content: center;
+	}
+</style>
