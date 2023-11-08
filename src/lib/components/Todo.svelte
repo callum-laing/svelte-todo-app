@@ -33,9 +33,10 @@
 
 	function editTodo(index) {
 		const newText = prompt('Edit teh todo: ', todos[index].text);
-		if (newText !== null) {
+		if (newText !== null && newText !== '' && newText !== ' ') {
 			todos[index].text = newText;
 			todos = [...todos];
+			saveTodos();
 		}
 	}
 	function toggleCompleted(index) {
