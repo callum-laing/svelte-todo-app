@@ -18,9 +18,11 @@
 	}
 
 	function addTodo() {
-		todos = [...todos, { text: newTodo, completed: false }];
-		newTodo = '';
-		saveTodos();
+		if (newTodo !== '' && newTodo[0] !== ' ') {
+			todos = [...todos, { text: newTodo, completed: false }];
+			newTodo = '';
+			saveTodos();
+		}
 	}
 
 	function removeTodo(index) {
