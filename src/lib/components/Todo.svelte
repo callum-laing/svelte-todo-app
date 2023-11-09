@@ -56,9 +56,10 @@
 	<h1>Todo List</h1>
 	<div class="input-section">
 		<input
+			class="input-text"
 			type="text"
 			bind:value={newTodo}
-			placeholder="Add a new todo"
+			placeholder="Add a new task"
 			on:keydown={handleKeyPress}
 		/>
 		<button class="todo-add-btn" on:click={addTodo}>+</button>
@@ -78,8 +79,10 @@
 <style>
 	h1 {
 		text-align: center;
-		font-family: 'Caveat', cursive;
-		font-size: 3rem;
+		font-family: 'Edu TAS Beginner', cursive;
+		font-size: 3.5rem;
+		margin-bottom: 50px;
+		letter-spacing: 3px;
 	}
 
 	.todoCard {
@@ -108,7 +111,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		margin: 20px 0;
+		margin-bottom: 50px;
 	}
 
 	.li-box {
@@ -122,6 +125,7 @@
 		max-width: 500px;
 		word-wrap: break-word;
 		margin-bottom: 20px;
+		font-family: 'Edu TAS Beginner', cursive;
 	}
 
 	input {
@@ -132,6 +136,10 @@
 		border-top: none;
 	}
 
+	.input-text {
+		font-family: 'Edu TAS Beginner', cursive;
+		font-size: 1.3rem;
+	}
 	.todo-add-btn {
 		background-color: transparent;
 		border-radius: 50%;
