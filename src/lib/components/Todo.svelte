@@ -1,4 +1,6 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
+
 	let todos = [];
 	let newTodo = '';
 
@@ -66,8 +68,8 @@
 	</div>
 	<ul>
 		{#each todos as todo, index}
-			<div class="li-box">
-				<input class="ui-checkbox" bind:checked={todo.completed} type="checkbox" />
+			<div class="li-box" in:fly={{ x: 50, duration: 1000 }} out:fade>
+				<input id={todo.id} class="ui-checkbox" bind:checked={todo.completed} type="checkbox" />
 				<span class="li-text" class:checked={todo.completed}>{todo.text}</span>
 				<span class="edit-btn" on:click={() => editTodo(index)}>✏️</span>
 				<span class="delete-btn" on:click={() => removeTodo(index)}>❌</span>
